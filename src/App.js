@@ -1,9 +1,14 @@
+import FullSchedule from 'pages/FullSchedule';
+import AllArtists from 'pages/AllArtists';
 import React from 'react'
 
 export const App = () => {
   return (
+
     <div>
-      Find me in src/app.js!
+      <FullSchedule />
+      <AllArtists />
     </div>
+
   )
 }

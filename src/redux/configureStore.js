@@ -1,11 +1,12 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import counterReducer from './ducks/counter';
-import userReducer from './ducks/user';
+import calendarReducer from './reducers/calendar';
+import artistsReducer from './reducers/artists'
+import { watcherSaga } from './sagas/rootSaga';
 
 const reducer = combineReducers({
-  counter: counterReducer,
-  user: userReducer
+  calendar: calendarReducer,
+  artists: artistsReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -14,6 +15,6 @@ const middleware = [sagaMiddleware];
 
 const store = createStore(reducer, {}, applyMiddleware(...middleware));
 
-// sagaMiddleware.run(watcherSaga);
+sagaMiddleware.run(watcherSaga);
 
 export default store;
